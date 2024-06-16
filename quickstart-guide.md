@@ -18,10 +18,10 @@ Welcome to SQL Server 2022 Express on Windows Server 2022 Datacenter! This guide
       - [To set a TCP/IP port for a named instance:](#to-set-a-tcpip-port-for-a-named-instance)
     - [Named Instance](#named-instance)
     - [Firewall](#firewall)
-    - [Connecting to SQL Server via SSMS](#connecting-to-sql-server-via-ssms)
-    - [Connecting to SQL Server via sqlcmd](#connecting-to-sql-server-via-sqlcmd)
-    - [Authentication](#authentication)
-    - [Testing the Installation](#testing-the-installation)
+  - [Connecting to SQL Server via SSMS](#connecting-to-sql-server-via-ssms)
+  - [Connecting to SQL Server via sqlcmd](#connecting-to-sql-server-via-sqlcmd)
+  - [Authentication](#authentication)
+  - [Testing the Installation](#testing-the-installation)
 
 ### Introduction
 
@@ -93,7 +93,7 @@ New-NetFirewallRule -DisplayName "SQLServer Browser service" -Direction Inbound 
 ```
 ![Firewall allowed apps SQL server](embedded_images/Firewall_allowed_apps.png)
 ![Firewall allowed apps SQL browser](embedded_images/Firewall_allowed_apps_sql_browser.png)
-### Connecting to SQL Server via SSMS
+## Connecting to SQL Server via SSMS
 
 1. **Open SQL Server Management Studio (SSMS)**: Launch SSMS on the server.
 ![Launch SSMS](embedded_images/SSMS.png)
@@ -109,7 +109,7 @@ GO
 ```
 ![SSMS Sample Query](embedded_images/SSMS_Query.png)
 
-### Connecting to SQL Server via sqlcmd
+## Connecting to SQL Server via sqlcmd
 
 1. **Open a command prompt.**: Launch cmd on the server 
 2. **Change Directory.**: C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn>
@@ -130,7 +130,7 @@ msdb
 
 (4 rows affected)
 ```
-### Authentication
+## Authentication
 As part of this packaged installation, the account running the SQL Server setup `sa_user` has system administrator (sysadmin) privileges on the SQL Server. In case you need to add another Windows user as a system administrator, then this can be done using the following example.
 
 ```sql
@@ -139,7 +139,7 @@ GO
 ALTER SERVER ROLE sysadmin ADD MEMBER [<domainName>\<loginName>];
 GO
 ```
-### Testing the Installation
+## Testing the Installation
 
 To verify that SQL Server is running correctly, you can perform the following tests:
 
