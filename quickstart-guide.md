@@ -11,6 +11,7 @@ Welcome to SQL Server 2022 Express on Windows Server 2022 Datacenter! This guide
     - [Table of Contents](#table-of-contents)
     - [Introduction](#introduction)
       - [Key Features](#key-features)
+      - [SQL Patch Level](#sql-patch-level)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
   - [Before You Get Started](#before-you-get-started)
@@ -25,7 +26,7 @@ Welcome to SQL Server 2022 Express on Windows Server 2022 Datacenter! This guide
 
 ### Introduction
 
-This guide provides step-by-step instructions to quick start with SQL Server 2022 Express on Windows Server 2022 Datacenter.
+This guide provides step-by-step instructions to quick start with SQL Server 2022 Express on Windows Server 2022 Datacenter at Google Cloud Platform.
 You will have following within this bundle:
 #### Key Features
 | Feature                      | Description                                          |
@@ -39,7 +40,13 @@ You will have following within this bundle:
 |                              | Machine Learning Services and Language Extensions    |
 | Named Instance               | SQLEXPRESS                                           |
 | Clustered                    | No                                                   | 
+#### SQL Patch Level
+KB5036432 - Cumulative Update 13 for SQL Server 2022
+This update contains 15 [fixes](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate13#improvements-and-fixes-included-in-this-update) that were issued after the release of SQL Server 2022 Cumulative Update 12, and it updates components in the following builds:
 
+SQL Server - Product version: 16.0.4125.3, file version: 2022.160.4125.3
+Analysis Services - Product version: 16.0.43.233, file version: 2022.160.43.23
+[Learn more](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate13)
 
 ### Prerequisites
 
