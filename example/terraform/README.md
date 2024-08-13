@@ -8,6 +8,8 @@ nav_order: 3
 
 This module deploys a product from Google Cloud Marketplace.
 
+You can find the <a href="https://github.com/gclouds-co-uk/SQL-Server-2022-Express/tree/main/example/terraform" target="_blank">Terraform module<img src="../../assets/images/external_link.png" alt="deploy" style="vertical-align: middle; width: 16px; height: 16px;" /></a> that deploys the product from Google Cloud Marketplace.
+
 ## Usage
 The provided test configuration can be used by executing:
 
