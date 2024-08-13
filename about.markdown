@@ -30,3 +30,7 @@ Whether you are looking to enhance your cloud infrastructure, optimize your proc
 - **Customer-Centric Design**: We prioritize your customers' needs, designing solutions that enhance their experience and drive your business forward.
 
 Join forces with [ **gClouds** ](https://www.gclouds.co.uk/){:target="_blank"}, and let's create a future where technology and business seamlessly integrate to achieve exceptional outcomes.
+
+<a href="https://discovery.ariba.com/profile/AN11172757030" target="_blank">
+<img alt="View Gclouds IT Consultancy Ltd profile on SAP Business Network Discovery" border=0 src="https://service.ariba.com/an/p/Ariba/badge_145x30.jpg">
+</a>
