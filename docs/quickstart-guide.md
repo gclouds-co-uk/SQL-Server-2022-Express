@@ -1,3 +1,9 @@
+---
+layout: default
+title: Quick Start Guide
+nav_order: 2
+---
+
 # SQL Server 2022 Express on Windows Server 2022 Datacenter
 
 ## Quick Start Guide
@@ -28,7 +34,9 @@ Welcome to SQL Server 2022 Express on Windows Server 2022 Datacenter! This guide
 
 This guide provides step-by-step instructions to quick start with SQL Server 2022 Express on Windows Server 2022 Datacenter at Google Cloud Platform.
 You will have following within this bundle:
+
 #### Key Features
+
 | Feature                      | Description                                          |
 |------------------------------|------------------------------------------------------|
 | OS version                   | Microsoft Windows Server 2022 Datacenter (10.0.20348)|
@@ -40,7 +48,9 @@ You will have following within this bundle:
 |                              | Machine Learning Services and Language Extensions    |
 | Named Instance               | SQLEXPRESS                                           |
 | Clustered                    | No                                                   | 
+
 #### SQL Patch Level
+
 KB5036432 - Cumulative Update 13 for SQL Server 2022
 This update contains 15 [fixes](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate13#improvements-and-fixes-included-in-this-update) that were issued after the release of SQL Server 2022 Cumulative Update 12, and it updates components in the following builds:
 
@@ -66,12 +76,14 @@ Analysis Services - Product version: 16.0.43.233, file version: 2022.160.43.23
 ![Set a new Windows password](embedded_images/Set_new_Windows_password.png)
 
 ## Before You Get Started
+
 Before you can connect to your SQL Server instance from another machine, you will need to complete the following tasks:
 - Set default port TCP/IP protocol for the named SQL Server instance
 - Create firewall rules for the required ports
 - Create the necessary logins for SQL Server
 
 ### Enabling TCP/IP Protocol
+
 TCP/IP server network protocol is required to connect to this SQL Server instance from a remote machine. This requires enabling TCP/IP protocol for the SQL Server service. It has been already enabled on the deployed server.
 
 #### To set a TCP/IP port for a named instance:
@@ -84,10 +96,12 @@ TCP/IP server network protocol is required to connect to this SQL Server instanc
 2. In the details pane, right-click SQL Server (`SQLEXPRESS`), and then click Restart, to stop and restart the SQL Server service.
 
 ### Named Instance
+
 A named instance of SQL Server ( `<host name> ` \ `SQLEXPRESS`) uses dynamic ports.
 Because SQL Express is installed then you will need to create a firewall rule for UDP port 1434 as this is the port required by named instances of SQL Server Browser Service to locate the instance on the host.
 
 ### Firewall
+
 To access an instance of the SQL Server through a firewall, you must configure the firewall on the computer that is running SQL Server to allow access. The firewall is a component of Microsoft Windows. You can also install a firewall from another company.
 
 You could use the `Powershell` to create the necessary exceptions to allow connections to the SQL Server instance.
@@ -100,9 +114,10 @@ New-NetFirewallRule -DisplayName "SQLServer Browser service" -Direction Inbound 
 ```
 ![Firewall allowed apps SQL server](embedded_images/Firewall_allowed_apps.png)
 ![Firewall allowed apps SQL browser](embedded_images/Firewall_allowed_apps_sql_browser.png)
+
 ## Connecting to SQL Server via SSMS
 
-1. **Open SQL Server Management Studio (SSMS)**: Launch SSMS on the server.
+1. **Open SQL Server Management Studio (SSMS)**: Launch SSMS on the server as an administrator.
 ![Launch SSMS](embedded_images/SSMS.png)
 1. **Connect to the Server**:
    - **Server Name**: Use the IP address or the hostname of your Windows Server instance.
@@ -118,15 +133,18 @@ GO
 
 ## Connecting to SQL Server via sqlcmd
 
-1. **Open a command prompt.**: Launch cmd on the server 
+1. **Open a command prompt.**: Launch cmd on the server as an administrator
 2. **Change Directory.**: C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn>
 3. **Run sqlcmd prompt**:Enter sqlcmd to start the SQL command-line tool. 
     At the sqlcmd prompt (1>), type the following query and press Enter:
+
 ```cmd
 SELECT name FROM sys.databases WHERE database_id <= 4;
 GO
 ```
+
 ***Output***
+
 ```cmd
 name                                                                                                                    
 --------------------------------
@@ -137,7 +155,9 @@ msdb
 
 (4 rows affected)
 ```
+
 ## Authentication
+
 As part of this packaged installation, the account running the SQL Server setup `sa_user` has system administrator (sysadmin) privileges on the SQL Server. In case you need to add another Windows user as a system administrator, then this can be done using the following example.
 
 ```sql
@@ -146,6 +166,7 @@ GO
 ALTER SERVER ROLE sysadmin ADD MEMBER [<domainName>\<loginName>];
 GO
 ```
+
 ## Testing the Installation
 
 To verify that SQL Server is running correctly, you can perform the following tests:

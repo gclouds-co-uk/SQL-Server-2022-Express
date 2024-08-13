@@ -1,3 +1,9 @@
+---
+layout: default
+title: End User License Agreement (EULA)
+nav_order: 4
+---
+
 # End User License Agreement (EULA)
 
 **Effective Date:** [17 June 2024]
