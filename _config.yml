@@ -23,7 +23,7 @@ theme: just-the-docs
 description: >- # this means to ignore newlines until "baseurl:"
   SQL Server 2019 Express on Google Cloud Platform!
 
-# baseurl: "/SQL-Server-2022-Express" # the subpath of your site, e.g. /blog
+baseurl: "/SQL-Server-2022-Express" # the subpath of your site, e.g. /blog
 url: "https://gclouds-co-uk.github.io/SQL-Server-2022-Express" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: gclouds2
 github_username:
