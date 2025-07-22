@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Quick Start Guide
+title: Concise Wrap-up
 nav_order: 2
 ---
 # SQL Server 2022 Express on Windows Server 2022 Datacenter
