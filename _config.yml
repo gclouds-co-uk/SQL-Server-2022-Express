@@ -49,7 +49,7 @@ mermaid:
   # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
   version: "10.9.1"
 
-footer_content: "Copyright © 2024  |  <a href='https://www.gclouds.co.uk'>gClouds</a> . All rights reserved."
+footer_content: "Copyright © 2025  |  <a href='https://www.gclouds.co.uk'>gClouds</a> . All rights reserved."
 
 # Exclude from processing.
 # The following items will not be processed, by default.
