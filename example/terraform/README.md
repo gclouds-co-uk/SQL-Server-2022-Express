@@ -1,14 +1,6 @@
----
-layout: default
-title: Terraform Module
-nav_order: 3
----
-
 # Google Cloud Marketplace Terraform Module
 
 This module deploys a product from Google Cloud Marketplace.
-
-You can find the <a href="https://github.com/gclouds-co-uk/SQL-Server-2022-Express/tree/main/example/terraform" target="_blank">Terraform module<img src="../../assets/images/external_link.png" alt="deploy" style="vertical-align: middle; width: 16px; height: 16px;" /></a> that deploys the product from Google Cloud Marketplace.
 
 ## Usage
 The provided test configuration can be used by executing:
@@ -18,12 +10,11 @@ terraform plan --var-file marketplace_test.tfvars --var project_id=<YOUR_PROJECT
 ```
 
 ## Inputs
-
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|----------|
 | project_id | The ID of the project in which to provision resources. | `string` | `null` | yes |
 | goog_cm_deployment_name | The name of the deployment and VM instance. | `string` | `null` | yes |
-| source_image | The image name for the disk for the VM instance. | `string` | `"projects/gclouds-public/global/images/gclouds-win2022-sql2022-exp-1718494319"` | no |
+| source_image | The image name for the disk for the VM instance. | `string` | `"projects/mpi-gclouds-public/global/images/gclouds-win2022-sql2022-exp-1753152128"` | no |
 | zone | The zone for the solution to be deployed. | `string` | `"us-central1-a"` | no |
 | machine_type | The machine type to create, e.g. e2-small | `string` | `"e2-standard-4"` | no |
 | boot_disk_type | The boot disk type for the VM instance. | `string` | `"pd-ssd"` | no |

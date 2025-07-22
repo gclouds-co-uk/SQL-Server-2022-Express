@@ -1,116 +1,115 @@
 apiVersion: blueprints.cloud.google.com/v1alpha1
 kind: BlueprintMetadata
 metadata:
+  name: marketplace-tools
   annotations:
     autogenSpecType: SINGLE_VM
     config.kubernetes.io/local-config: "true"
-  name: marketplace-tools
 spec:
-  content: {}
   info:
+    title: Google Cloud Marketplace Terraform Module
+    version: 2025H2
     actuationTool:
       flavor: Terraform
-      version: '>= 1.2'
+      version: ">= 1.2"
     description: {}
     softwareGroups:
-    - software:
-      - title: Microsoft Windows Server 2022
-        version: Datacenter
-      type: SG_OS
-    - software:
-      - title: SQL Package
-        version: SQL Server 2022
-      - title: SQL Edition
-        version: Express
-      - title: Cumulative Update
-        version: CU13 (KB5036432)
-      - title: SSMS
-        version: "19.3"
-      - title: Express Package
-        version: Advanced
-    title: Google Cloud Marketplace Terraform Module
-    version: latest
+      - type: SG_OS
+        software:
+          - title: Microsoft Windows Server 2022
+            version: "Datacenter"
+      - software:
+          - title: SQL Package
+            version: "SQL Server 2022"
+          - title: SQL Edition
+            version: "Express"
+          - title: Cumulative Update
+            version: "CU20 (KB5059390)"
+          - title: SSMS
+            version: "20.1"
+          - title: Express Package
+            version: "Advanced"
+  content: {}
   interfaces:
-    outputs:
-    - description: Machine type for the compute instance.
-      name: instance_machine_type
-    - description: External IP of the compute instance.
-      name: instance_nat_ip
-    - description: Self-link for the network of the compute instance.
-      name: instance_network
-    - description: Self-link for the compute instance.
-      name: instance_self_link
-    - description: Zone for the compute instance.
-      name: instance_zone
     variables:
-    - description: The ID of the project in which to provision resources.
-      name: project_id
-      required: true
-      varType: string
-    - description: The name of the deployment and VM instance.
-      name: goog_cm_deployment_name
-      required: true
-      varType: string
-    - defaultValue: projects/mpi-gclouds-public/global/images/gclouds-win2022-sql2022-exp-1718494319
-      description: The image name for the disk for the VM instance.
-      name: source_image
-      varType: string
-    - defaultValue: us-central1-a
-      description: The zone for the solution to be deployed.
-      name: zone
-      varType: string
-    - defaultValue: pd-ssd
-      description: The boot disk type for the VM instance.
-      name: boot_disk_type
-      varType: string
-    - defaultValue: 80
-      description: The boot disk size for the VM instance in GBs
-      name: boot_disk_size
-      varType: integer
-    - defaultValue: e2-standard-4
-      description: The machine type to create, e.g. e2-small
-      name: machine_type
-      varType: string
-    - defaultValue:
-      - default
-      description: The network name to attach the VM instance.
-      name: networks
-      varType: list(string)
-    - defaultValue: []
-      description: The sub network name to attach the VM instance.
-      name: sub_networks
-      varType: list(string)
-    - defaultValue:
-      - EPHEMERAL
-      description: The external IPs assigned to the VM for public access.
-      name: external_ips
-      varType: list(string)
-    - defaultValue: true
-      description: Allow TCP port 1433 traffic from the Internet
-      name: enable_tcp_1433
-      varType: bool
-    - defaultValue: ""
-      description: Source IP ranges for TCP port 1433 traffic
-      name: tcp_1433_source_ranges
-      varType: string
-    - defaultValue: true
-      description: Allow UDP port 1434 traffic from the Internet
-      name: enable_udp_1434
-      varType: bool
-    - defaultValue: ""
-      description: Source IP ranges for UDP port 1434 traffic
-      name: udp_1434_source_ranges
-      varType: string
-    - defaultValue: false
-      description: Whether to allow sending and receiving of packets with non-matching
-        source or destination IPs.
-      name: ip_forward
-      varType: bool
-    - defaultValue: true
-      description: Enables Cloud Logging.
-      name: enable_cloud_logging
-      varType: bool
-    - defaultValue: true
-      description: Enables Cloud Monitoring.
-      name: enable_cloud_monitoring
-      varType: bool
+      - name: project_id
+        description: The ID of the project in which to provision resources.
+        varType: string
+        required: true
+      - name: goog_cm_deployment_name
+        description: The name of the deployment and VM instance.
+        varType: string
+        required: true
+      - name: source_image
+        description: The image name for the disk for the VM instance.
+        varType: string
+        defaultValue: projects/mpi-gclouds-public/global/images/gclouds-win2022-sql2022-exp-1753152128
+      - name: zone
+        description: The zone for the solution to be deployed.
+        varType: string
+        defaultValue: us-central1-a
+      - name: boot_disk_type
+        description: The boot disk type for the VM instance.
+        varType: string
+        defaultValue: pd-ssd
+      - name: boot_disk_size
+        description: The boot disk size for the VM instance in GBs
+        varType: integer
+        defaultValue: 80
+      - name: machine_type
+        description: The machine type to create, e.g. e2-small
+        varType: string
+        defaultValue: e2-standard-4
+      - name: networks
+        description: The network name to attach the VM instance.
+        varType: list(string)
+        defaultValue:
+          - default
+      - name: sub_networks
+        description: The sub network name to attach the VM instance.
+        varType: list(string)
+        defaultValue: []
+      - name: external_ips
+        description: The external IPs assigned to the VM for public access.
+        varType: list(string)
+        defaultValue:
+          - EPHEMERAL
+      - name: enable_tcp_1433
+        description: Allow TCP port 1433 traffic from the Internet
+        varType: bool
+        defaultValue: true
+      - name: tcp_1433_source_ranges
+        description: Source IP ranges for TCP port 1433 traffic
+        varType: string
+        defaultValue: ""
+      - name: enable_udp_1434
+        description: Allow UDP port 1434 traffic from the Internet
+        varType: bool
+        defaultValue: true
+      - name: udp_1434_source_ranges
+        description: Source IP ranges for UDP port 1434 traffic
+        varType: string
+        defaultValue: ""
+      - name: ip_forward
+        description: Whether to allow sending and receiving of packets with non-matching source or destination IPs.
+        varType: bool
+        defaultValue: false
+      - name: enable_cloud_logging
+        description: Enables Cloud Logging.
+        varType: bool
+        defaultValue: true
+      - name: enable_cloud_monitoring
+        description: Enables Cloud Monitoring.
+        varType: bool
+        defaultValue: true
+    outputs:
+      - name: instance_machine_type
+        description: Machine type for the compute instance.
+      - name: instance_nat_ip
+        description: External IP of the compute instance.
+      - name: instance_network
+        description: Self-link for the network of the compute instance.
+      - name: instance_self_link
+        description: Self-link for the compute instance.
+      - name: instance_zone
+        description: Zone for the compute instance.

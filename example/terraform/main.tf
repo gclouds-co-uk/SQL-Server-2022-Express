@@ -12,6 +12,9 @@ locals {
 
   metadata = {
     product = "ms-sql-server-2022-express"
+    CU = "20"
+    SQL = "2022"
+    Version = "16.0.4205.1"
     google-logging-enable = "0"
     google-monitoring-enable = "0"
   }
