@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Terraform Readme
-nav_order: 2
+nav_order: 5
 ---
 # Google Cloud Marketplace Terraform Module
 
@@ -15,6 +15,7 @@ terraform plan --var-file marketplace_test.tfvars --var project_id=<YOUR_PROJECT
 ```
 
 ## Inputs
+
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|----------|
 | project_id | The ID of the project in which to provision resources. | `string` | `null` | yes |
