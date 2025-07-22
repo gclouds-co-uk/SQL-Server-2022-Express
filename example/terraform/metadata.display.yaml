@@ -1,162 +1,148 @@
 apiVersion: blueprints.cloud.google.com/v1alpha1
 kind: BlueprintMetadata
 metadata:
+  name: marketplace-tools-display
   annotations:
     autogenSpecType: SINGLE_VM
     config.kubernetes.io/local-config: "true"
-  name: marketplace-tools-display
 spec:
   ui:
     input:
-      sections:
-      - name: boot_disk
-        title: Boot Disk
-        tooltip: Each instance requires a disk to boot from.
-      - name: networking
-        title: Networking
       variables:
-        boot_disk_size:
-          max: 10000
-          name: boot_disk_size
-          section: boot_disk
-          title: Boot disk size in GB
-          xGoogleProperty:
-            gceDiskSize:
-              diskTypeVariable: boot_disk_type
-            type: ET_GCE_DISK_SIZE
-        boot_disk_type:
-          name: boot_disk_type
-          section: boot_disk
-          title: Boot disk type
-          xGoogleProperty:
-            type: ET_GCE_DISK_TYPE
-            zoneProperty: zone
-        enable_tcp_1433:
-          name: enable_tcp_1433
-          section: networking
-          title: Allow TCP port 1433 traffic from the Internet
-          xGoogleProperty:
-            gceFirewall:
-              networkVariable: networks
-            type: ET_GCE_FIREWALL
-        enable_udp_1434:
-          name: enable_udp_1434
-          section: networking
-          title: Allow UDP port 1434 traffic from the Internet
-          xGoogleProperty:
-            gceFirewall:
-              networkVariable: networks
-            type: ET_GCE_FIREWALL
-        external_ips:
-          maxItems: 1
-          minItems: 1
-          name: external_ips
-          section: networking
-          title: External IP
-          tooltip: An external IP address associated with this instance. Selecting
-            "None" will result in the instance having no external internet access.
-            <a href="https://cloud.google.com/compute/docs/configure-instance-ip-addresses">Learn
-            more</a>
-          xGoogleProperty:
-            gceExternalIp:
-              allowStaticIps: true
-              networkVariable: networks
-              notConfigurable: false
-            type: ET_GCE_EXTERNAL_IP
+        project_id:
+          name: project_id
+          title: Project Id
+          invisible: true
         goog_cm_deployment_name:
           name: goog_cm_deployment_name
           title: Goog Cm Deployment Name
-        ip_forward:
-          level: 1
-          name: ip_forward
-          section: networking
-          title: IP forwarding
-          tooltip: Forwarding allows the instance to help route packets. <a href="https://cloud.google.com/compute/docs/networking#canipforward">Learn
-            more</a>
+        source_image:
+          name: source_image
+          title: Image version
+          enumValueLabels:
+            - label: gclouds-win2022-sql2022-exp-1753152128
+              value: projects/mpi-gclouds-public/global/images/gclouds-win2022-sql2022-exp-1753152128
           xGoogleProperty:
-            gceIpForwarding:
-              networkVariable: networks
-              notConfigurable: false
-            type: ET_GCE_IP_FORWARDING
+            type: ET_GCE_DISK_IMAGE
         machine_type:
           name: machine_type
           title: Machine type
           xGoogleProperty:
+            type: ET_GCE_MACHINE_TYPE
+            zoneProperty: zone
             gceMachineType:
               minCpu: 2
               minRamGb: 8
-            type: ET_GCE_MACHINE_TYPE
+        boot_disk_type:
+          name: boot_disk_type
+          title: Boot disk type
+          section: boot_disk
+          xGoogleProperty:
+            type: ET_GCE_DISK_TYPE
             zoneProperty: zone
-        networks:
-          maxItems: 1
-          minItems: 1
-          name: networks
-          section: networking
-          title: Network name
+        boot_disk_size:
+          name: boot_disk_size
+          title: Boot disk size in GB
+          max: 10000
+          section: boot_disk
           xGoogleProperty:
-            gceNetwork:
-              allowSharedVpcs: true
-              machineTypeVariable: machine_type
-            type: ET_GCE_NETWORK
-        project_id:
-          invisible: true
-          name: project_id
-          title: Project Id
-        source_image:
-          enumValueLabels:
-          - label: gclouds-win2022-sql2022-exp-1718494319
-            value: projects/mpi-gclouds-public/global/images/gclouds-win2022-sql2022-exp-1718494319
-          name: source_image
-          title: Image version
-          xGoogleProperty:
-            type: ET_GCE_DISK_IMAGE
-        sub_networks:
-          maxItems: 1
-          minItems: 1
-          name: subnetworks
-          section: networking
-          title: Subnetwork name
-          xGoogleProperty:
-            gceSubnetwork:
-              networkVariable: networks
-            type: ET_GCE_SUBNETWORK
-            zoneProperty: zone
-        tcp_1433_source_ranges:
-          name: tcp_1433_source_ranges
-          placeholder: 0.0.0.0/0, 192.169.0.2/24
-          section: networking
-          title: Source IP ranges for TCP port 1433 traffic
-          tooltip: Traffic is only allowed from sources within these IP address ranges.
-            Use CIDR notation when entering ranges. <a href="https://cloud.google.com/compute/docs/networking#firewalls">Learn
-            more</a>
-          xGoogleProperty:
-            gceFirewallRange:
-              firewallVariable: enable_tcp_1433
-            type: ET_GCE_FIREWALL_RANGE
-        udp_1434_source_ranges:
-          name: udp_1434_source_ranges
-          placeholder: 0.0.0.0/0, 192.169.0.2/24
-          section: networking
-          title: Source IP ranges for UDP port 1434 traffic
-          tooltip: Traffic is only allowed from sources within these IP address ranges.
-            Use CIDR notation when entering ranges. <a href="https://cloud.google.com/compute/docs/networking#firewalls">Learn
-            more</a>
-          xGoogleProperty:
-            gceFirewallRange:
-              firewallVariable: enable_udp_1434
-            type: ET_GCE_FIREWALL_RANGE
+            type: ET_GCE_DISK_SIZE
+            gceDiskSize:
+              diskTypeVariable: boot_disk_type
         zone:
           name: zone
           title: Zone
           xGoogleProperty:
             type: ET_GCE_ZONE
+        networks:
+          name: networks
+          title: Network name
+          minItems: 1
+          maxItems: 1
+          section: networking
+          xGoogleProperty:
+            type: ET_GCE_NETWORK
+            gceNetwork:
+              allowSharedVpcs: true
+              machineTypeVariable: machine_type
+        sub_networks:
+          name: subnetworks
+          title: Subnetwork name
+          minItems: 1
+          maxItems: 1
+          section: networking
+          xGoogleProperty:
+            type: ET_GCE_SUBNETWORK
+            zoneProperty: zone
+            gceSubnetwork:
+              networkVariable: networks
+        external_ips:
+          name: external_ips
+          title: External IP
+          tooltip: 'An external IP address associated with this instance. Selecting "None" will result in the instance having no external internet access. <a href="https://cloud.google.com/compute/docs/configure-instance-ip-addresses">Learn more</a>'
+          minItems: 1
+          maxItems: 1
+          section: networking
+          xGoogleProperty:
+            type: ET_GCE_EXTERNAL_IP
+            gceExternalIp:
+              networkVariable: networks
+              notConfigurable: false
+              allowStaticIps: true
+        enable_tcp_1433:
+          name: enable_tcp_1433
+          title: Allow TCP port 1433 traffic from the Internet
+          section: networking
+          xGoogleProperty:
+            type: ET_GCE_FIREWALL
+            gceFirewall:
+              networkVariable: networks
+        tcp_1433_source_ranges:
+          name: tcp_1433_source_ranges
+          title: Source IP ranges for TCP port 1433 traffic
+          tooltip: 'Traffic is only allowed from sources within these IP address ranges. Use CIDR notation when entering ranges. <a href="https://cloud.google.com/compute/docs/networking#firewalls">Learn more</a>'
+          placeholder: '0.0.0.0/0, 192.169.0.2/24'
+          section: networking
+          xGoogleProperty:
+            type: ET_GCE_FIREWALL_RANGE
+            gceFirewallRange:
+              firewallVariable: enable_tcp_1433
+        enable_udp_1434:
+          name: enable_udp_1434
+          title: Allow UDP port 1434 traffic from the Internet
+          section: networking
+          xGoogleProperty:
+            type: ET_GCE_FIREWALL
+            gceFirewall:
+              networkVariable: networks
+        udp_1434_source_ranges:
+          name: udp_1434_source_ranges
+          title: Source IP ranges for UDP port 1434 traffic
+          tooltip: 'Traffic is only allowed from sources within these IP address ranges. Use CIDR notation when entering ranges. <a href="https://cloud.google.com/compute/docs/networking#firewalls">Learn more</a>'
+          placeholder: '0.0.0.0/0, 192.169.0.2/24'
+          section: networking
+          xGoogleProperty:
+            type: ET_GCE_FIREWALL_RANGE
+            gceFirewallRange:
+              firewallVariable: enable_udp_1434
+        ip_forward:
+          name: ip_forward
+          title: IP forwarding
+          tooltip: 'Forwarding allows the instance to help route packets. <a href="https://cloud.google.com/compute/docs/networking#canipforward">Learn more</a>'
+          section: networking
+          level: 1
+          xGoogleProperty:
+            type: ET_GCE_IP_FORWARDING
+            gceIpForwarding:
+              networkVariable: networks
+              notConfigurable: false
+      sections:
+        - name: boot_disk
+          title: Boot Disk
+          tooltip: Each instance requires a disk to boot from.
+        - name: networking
+          title: Networking
     runtime:
       suggestedActions:
-      - description: 'sa_user is a local operating system user with database administrator
-          (DBA) privileges, but lacks Windows administrative rights. It is designated
-          as a member of the Remote Desktop Users local group. Manual password reset
-          in Google Cloud console: You can manually reset the password through the
-          Google Cloud console for improved security or use gcloud command.'
-        heading: Reset "sa_user" Windows user password
-        snippet: gcloud compute reset-windows-password INSTANCE_NAME --user=sa_user
-          [--zone=ZONE]
+        - heading: Check documentation
+          description: Check quick start guide
