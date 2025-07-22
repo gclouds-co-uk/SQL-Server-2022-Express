@@ -1,9 +1,8 @@
 ---
 layout: page
 title: About
-nav_order: 5
+nav_order: 6
 ---
-
 <p>
   <a href="https://www.gclouds.co.uk" target="_blank">
     <img src="./assets/images/gclouds.png" alt="gClouds" style="vertical-align: middle; width: 246px; height: 85px;" />
@@ -12,7 +11,6 @@ nav_order: 5
     <img src="./assets/images/Google_Cloud_Partner.png" alt="Google Cloud Partner" style="vertical-align: middle; width: 284px; height: 86px;" />
   </a>
 </p>
-
 
 # About gClouds
 

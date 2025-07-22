@@ -1,3 +1,8 @@
+---
+layout: default
+title: Terraform Readme
+nav_order: 2
+---
 # Google Cloud Marketplace Terraform Module
 
 This module deploys a product from Google Cloud Marketplace.
