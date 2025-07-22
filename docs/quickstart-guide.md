@@ -42,8 +42,8 @@ You will have following within this bundle:
 | OS version                   | Microsoft Windows Server 2022 Datacenter (10.0.20348)|
 | SQL Package                  | Microsoft SQL Server 2022                            |
 | SQL Edition                  | Express                                              |
-| Type                         | RTM-CU13 (KB5036432)                                 |
-| Version                      | 16.0.4125.3 (X64)                                    |
+| Type                         | RTM-CU20 (KB5059390)                                 |
+| Version                      | 16.0.4205.1 (X64)                                    |
 | Features                     | Database Engine Services, SQL Server Replication     |
 |                              | Machine Learning Services and Language Extensions    |
 | Named Instance               | SQLEXPRESS                                           |
@@ -51,12 +51,12 @@ You will have following within this bundle:
 
 #### SQL Patch Level
 
-KB5036432 - Cumulative Update 13 for SQL Server 2022
-This update contains 15 [fixes](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate13#improvements-and-fixes-included-in-this-update) that were issued after the release of SQL Server 2022 Cumulative Update 12, and it updates components in the following builds:
+KB5036432 - Cumulative Update 20 for SQL Server 2022
+This update contains 10 [fixes](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate20#improvements-and-fixes-included-in-this-update) that were issued after the release of SQL Server 2022 Cumulative Update 19, and it updates components in the following builds:
 
-SQL Server - Product version: 16.0.4125.3, file version: 2022.160.4125.3
-Analysis Services - Product version: 16.0.43.233, file version: 2022.160.43.23
-[Learn more](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate13)
+SQL Server - Product version: 16.0.4205.1, file version: 2022.160.4205.1
+Analysis Services - Product version: 16.0.43.247, file version: 2022.160.43.247
+[Learn more](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate20)
 
 ### Prerequisites
 
@@ -66,11 +66,9 @@ Analysis Services - Product version: 16.0.43.233, file version: 2022.160.43.23
 ### Installation
 
 1. **Deploy the Image**: Follow the instructions on the [Google Cloud Platform Marketplace](https://console.cloud.google.com/marketplace/product/gclouds-public/sql-server-2022-express-on-windows-server-2022-datacenter?project=gclouds-public) to deploy the SQL Server 2022 Express image.
-2. **Reset the sa_user password**: Once the deployment is complete, for secure access to the SQL server, reset the Windows OS local `sa_user` ( it is a SQL server sysadmin account)
-![Reset sa_user password](embedded_images/reset_sa_user_password.png)
-3. **Access the SQL Server as an Administrator**: Access your Windows Server instance using Remote Desktop Protocol (RDP) with an administrator user.
- > **Note**: `sa_user` is not a Windows admin user. 
- 
+
+2. **Access the SQL Server as an Administrator**: Access your Windows Server instance using Remote Desktop Protocol (RDP) with an administrator user.
+  
  ***Create a Windows administrator user on the server by setting a password.***
 ![GCP Compute Engine Console](embedded_images/GCP_Console_reset_password.png)
 ![Set a new Windows password](embedded_images/Set_new_Windows_password.png)
