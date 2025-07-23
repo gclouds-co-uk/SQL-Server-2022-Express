@@ -54,6 +54,7 @@ nav_order: 2
 
    ```sql
        SELECT @@VERSION;   -- should show CU20
+       GO
    ```
 
 5. Add sysadmin (if needed)
