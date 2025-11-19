@@ -41,8 +41,8 @@ You will have following within this bundle:
 | OS version     | Microsoft Windows Server 2022 Datacenter (10.0.20348) |
 | SQL Package    | Microsoft SQL Server 2022                             |
 | SQL Edition    | Express                                               |
-| Type           | RTM-CU20 (KB5059390)                                  |
-| Version        | 16.0.4205.1 (X64)                                     |
+| Type           | RTM-CU22 (KB5068450)                                  |
+| Version        | 16.0.4225.2 (X64)                                     |
 | Features       | Database Engine Services, SQL Server Replication      |
 |                | Machine Learning Services and Language Extensions     |
 | Named Instance | SQLEXPRESS                                            |
@@ -50,12 +50,12 @@ You will have following within this bundle:
 
 #### SQL Patch Level
 
-KB5036432 - Cumulative Update 20 for SQL Server 2022
-This update contains 10 [fixes](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate20#improvements-and-fixes-included-in-this-update) that were issued after the release of SQL Server 2022 Cumulative Update 19, and it updates components in the following builds:
+KB5068450 - Cumulative Update 22 for SQL Server 2022
+This update contains fixes that were issued after the release of SQL Server 2022 Cumulative Update 21, and it updates components in the following builds:
 
-SQL Server - Product version: 16.0.4205.1, file version: 2022.160.4205.1
-Analysis Services - Product version: 16.0.43.247, file version: 2022.160.43.247
-[Learn more](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate20)
+SQL Server - Product version: 16.0.4225.2, file version: 2022.160.4225.2
+Analysis Services - Product version: 16.0.43.252, file version: 2022.160.43.252
+[Learn more](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate22)
 
 ### Prerequisites
 
