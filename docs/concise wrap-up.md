@@ -25,6 +25,37 @@ nav_order: 2
 - **Creation Date:** Feb 09, 2026
 - **Source Image:** `windows-server-2022-dc-v20260114`
 
+## Post-deployment Checklist on GCP
+
+1. **Enable TCP/IP & Set Port**
+   - SQL Config Mgr → SQL Server Network Config → Protocols for SQLEXPRESS
+   - IPAll → TCP Port = 1433
+
+2. **Firewall Rules**
+   - TCP 1433 (SQL Server)
+   - UDP 1434 (SQL Browser)
+   > Already pre-configured in the image.
+
+3. **Connect**
+   - SSMS: WIN-AUTH to `.\SQLEXPRESS`
+   - sqlcmd:
+     ```cmd
+     sqlcmd -S .\SQLEXPRESS
+     ```
+
+4. **Verify**
+   ```sql
+   SELECT @@VERSION;   -- should show CU23
+   GO
+   ```
+
+5. **Add sysadmin (if needed)**
+   ```sql
+   CREATE LOGIN [DOMAIN\User] FROM WINDOWS;
+   ALTER SERVER ROLE sysadmin ADD MEMBER [DOMAIN\User];
+   GO
+   ```
+
 ---
 
 ## SQL Server 2022 CU22 (KB5068450) – November 2025
