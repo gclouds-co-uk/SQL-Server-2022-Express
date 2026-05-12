@@ -6,6 +6,29 @@ nav_order: 5
 
 # Release Notes
 
+## SQL2022EXP-2026H2
+
+**Release Date:** May 12, 2026
+
+This release includes the following updates:
+
+*   **SQL Server 2022 Cumulative Update 24 (CU24)** (KB5080999)
+    *   Build: 16.0.4245.2
+    *   [Learn more](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate24)
+*   **Windows Server 2022 Datacenter**
+    *   OS Build: 10.0.20348 (Updated May 2026+)
+*   **Security Enhancements**
+    *   Addressed CVE-2026-33824.
+
+### Components Updated
+
+*   SQL Server Database Engine
+*   SQL Server Replication
+*   Machine Learning Services and Language Extensions
+*   SQL Server Management Studio (SSMS) 20.1
+
+---
+
 ## SQL2022EXP-2026Q1
 
 **Release Date:** February 09, 2026
